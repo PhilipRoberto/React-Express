@@ -1,0 +1,51 @@
+{
+  "name": "react-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "build:ui": "esbuild src/ui/UI.tsx --bundle --outfile=src/public/bundle.js --loader:.tsx=tsx --target=es2020 --platform=browser",
+    "watch:ui": "yarn build:ui --watch",
+    "watch:server": "nodemon --watch src --watch src/public/index.ejs --ext ts,tsx,ejs --exec \"tsx src/index.ts\"",
+    "watch:reload": "livereload src/public --wait 200",
+    "dev": "concurrently \"yarn watch:ui\" \"yarn watch:server\" \"yarn watch:reload\"",
+    "start": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhilipRoberto/React-Express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/PhilipRoberto/React-Express/issues"
+  },
+  "homepage": "https://github.com/PhilipRoberto/React-Express#readme",
+  "dependencies": {
+    "@babel/preset-react": "^7.28.5",
+    "@babel/register": "^7.28.6",
+    "@types/ejs": "^3.1.5",
+    "@types/react-dom": "^19.2.3",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "concurrently": "^8.2.0",
+    "esbuild": "^0.19.0",
+    "livereload": "^0.10.0",
+    "prisma": "^7.8.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^6.0.3"
+  }
+}
